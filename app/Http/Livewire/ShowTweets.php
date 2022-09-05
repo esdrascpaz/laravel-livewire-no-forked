@@ -5,10 +5,15 @@ namespace App\Http\Livewire;
 use App\Models\Tweet;
 
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class ShowTweets extends Component
 {
+    // Faz com que a paginação ocorra sem atualizar a página
+    use WithPagination;
+
     public $message = '';
+    protected $paginationTheme = 'bootstrap';
 
     public function render()
     {
