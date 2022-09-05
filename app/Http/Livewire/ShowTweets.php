@@ -20,6 +20,13 @@ class ShowTweets extends Component
 
     public function create()
     {
-        dd($this -> message); // Tipo um console.log
+        Tweet::create([
+            'content' => $this->message,
+            'user_id' => 1
+        ]);
+
+        $this->message = '';
+
+        // dd($this -> message); // Tipo um console.log
     }
 }
