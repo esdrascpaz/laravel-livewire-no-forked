@@ -33,6 +33,8 @@ class ShowTweets extends Component
             'user_id' => 1
         ]); */
 
+        // $this->validate();
+
         auth()->user()->tweets()->create([
             'content' => $this->message
         ]);
