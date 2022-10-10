@@ -14,12 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('tweets', ShowTweets::class)->middleware('auth');
+Route::get('tweets', ShowTweets::class)->middleware( // Jetstream
+    'auth'
+);
 
 Route::get('/', function () {
     return view('welcome');
 });
 
+// Jetstream
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
