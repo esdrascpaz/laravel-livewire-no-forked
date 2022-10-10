@@ -17,7 +17,8 @@ class ShowTweets extends Component
 
     public function render()
     {
-        $tweets = Tweet::with('user')->paginate(2);
+        // lasted: exibe a paginação em ordem decrescente
+        $tweets = Tweet::with('user')->lasted()->paginate(2);
         return view('livewire.show-tweets', [
             'tweets' => $tweets
         ]);
@@ -25,9 +26,15 @@ class ShowTweets extends Component
 
     public function create()
     {
-        Tweet::create([
+        // *** Antes do Jetstream ***
+
+        /* Tweet::create([
             'content' => $this->message,
             'user_id' => 1
+        ]); */
+
+        auth()->user()->tweets()->create([
+            'content' => $this->message
         ]);
 
         $this->message = '';
