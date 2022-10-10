@@ -18,7 +18,7 @@ class ShowTweets extends Component
     public function render()
     {
         // lasted: exibe a paginação em ordem decrescente
-        $tweets = Tweet::with('user')->lasted()->paginate(2);
+        $tweets = Tweet::with('user')->latest()->paginate(2);
         return view('livewire.show-tweets', [
             'tweets' => $tweets
         ]);
